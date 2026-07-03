@@ -1,0 +1,5 @@
+# Standard sequence of commands to commit new changes to GitHub
+git status
+git add .
+git commit -m "{Commit Message Here}"
+git push
