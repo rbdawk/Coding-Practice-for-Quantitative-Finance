@@ -1,0 +1,18 @@
+# Ignore node modules (for JavaScript/Node projects)
+node_modules/
+
+# Ignore Python virtual environments
+.venv/
+venv/
+ENV/
+
+# Ignore local environment variables / API keys
+.env
+.env.local
+
+# Ignore OS-specific junk files
+.DS_Store
+Thumbs.db
+
+# Ignore VSCode environment setup
+.vscode/

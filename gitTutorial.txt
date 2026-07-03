@@ -1,3 +1,12 @@
+# Setting up a github repository
+git init
+echo "# {Title of Repository Here}" > README.md
+git add .
+git commit -m "{First Commit Message Here}"
+git checkout -b main
+git remote add origin https://github.com/{Path To Your Repository on Github}
+git push -u origin main
+
 # Standard sequence of commands to commit new changes to GitHub
 git status
 git add .
