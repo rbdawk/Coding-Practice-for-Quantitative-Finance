@@ -20,6 +20,10 @@ This is a multi-line comment
 #include <unordered_set>
 #include <tuple>
 #include <variant>
+#include <cmath>
+
+// Forward declaration for functions
+int power (int base, int exponent);
 
 // Main function, which is executed by the compiled code
 int main(){
@@ -36,10 +40,11 @@ int main(){
     // - Ask the user for their name
     // - std::cin does not allow for spaces as input, std::getline would need to be used instead.
     //   However, using std::getline right after std::cin requires a cleanup statement.
-    std::string name {};
-    std::cout << "Enter your first name, please: ";
-    std::cin >> name;
-    std::cout << "You entered the name " << name << ".\n"; // \n, as opposed to std::endl, does not immediately cause the terminal buffer to print
+    std::string first_name {};
+    std::string last_name {};
+    std::cout << "Enter your first and last name, please: ";
+    std::cin >> first_name >> last_name;
+    std::cout << "You entered the name " << first_name << " " << last_name << ".\n"; // \n, as opposed to std::endl, does not immediately cause the terminal buffer to print
 
     //---------------------------------------------------------
     // Basic Data Types
@@ -122,18 +127,85 @@ int main(){
     std::variant<int, float, double> v {std::in_place_type<float>, 4.6}; // Need to specify the type when assigning
 
     //---------------------------------------------------------
+    // Math
+    //---------------------------------------------------------
+
+
+    //---------------------------------------------------------
     // If Statements, While Loops, & For Loops
     //---------------------------------------------------------
 
     // If Statements
+    // - Regular if-else statements are done as follows
+    if (y1 < 4) {
+        std::cout << "y1 is smaller than 4!" << std::endl;
+    } else if (y1 > 4) {
+        std::cout << "y1 is greater than 4!" << std::endl;
+    } else {
+        std::cout << "y1 IS 4!" << std::endl;
+    }
+    // - An alternative shorthand if-else can also be used.
+    std::cout << ((y2 < 3) ? "y2 is smaller than 3!" : (y2 > 3) ? "y2 is greater than 3!" : "y2 IS 3!") << std::endl;
+
+    // Switch Statements
+    int day {3};
+    char bob {};
+    switch (day) {
+        case 1:
+            bob = 'A';
+            break; // Used to leave the switch block, otherwise more cases will be checked
+        case 2:
+            bob = 'B';
+            break;
+        case 3:
+            bob = 'C';
+            break;
+        case 4:
+            bob = 'D';
+            break;
+        default: // Used for when no case is matched. Will always run unless the block is broken.
+            bob = 'F';
+            break;
+    }
 
     // While Loops
+    // - The conventional While Loop is shown below
+    int i {0};
+    while (i <= 5) {
+        std::cout << "This is i: " << i << std::endl;
+        i++;
+    }
+    // - An alternative "Do While" Loop is also possible, where the loop is executed once before the condition is checked
+    int j {4};
+    do {
+        std::cout << "This is j: " << j << std::endl;
+        j++;
+    } while (j <= 3);
 
     // For Loops
+    // - The standard For Loop is shown below
+    for (int i {0}; i <= 2; i++) {
+        std::cout << "I am looping i: " << i << std::endl;
+    }
+    // - A For Each Loop, which ranges over elements of an array, is also possible
+    // - For Each Loops can also iterate through pretty much any compound data type, such strings, vectors, and maps
+    std::array<int, 3> C {45, 62, 30};
+    for (int i : C) {
+        std::cout << "I am now looping in an array: " << i << std::endl;
+        if (i > 60) {
+            continue; // Breaks the current step of the loop and continues to the next iteration
+        }
+        else if (i < 40) {
+            break; // Breaks the current step of the loop and exits the For Loop
+        }
+    }
 
     //---------------------------------------------------------
     // Functions
     //---------------------------------------------------------
+
+    // Simple function to raise one positive integer to the power of another positive integer
+    std::cout << "When I raise 2 to the power 5, I get: " << power(2, 5) << "." << std::endl;
 
     //---------------------------------------------------------
     // Classes, Structs, & Enumeration
@@ -149,4 +221,14 @@ int main(){
 
     // Return 0 to close out the program
     return 0;
+}
+
+// This is the syntax for defining a function
+// - This example function raises one positive integer to the power of another positive integer
+int power (int base, int exponent) {
+    int result = 1; // num will be the final result
+    for (int i = 1; i <= exponent; i++) {
+        result *= base;
+    }
+    return result;
 }
