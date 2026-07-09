@@ -225,6 +225,7 @@ int main(){
 
 // This is the syntax for defining a function
 // - This example function raises one positive integer to the power of another positive integer
+// - Note, in C++ you cannot define a function within another function
 int power (int base, int exponent) {
     int result = 1; // num will be the final result
     for (int i = 1; i <= exponent; i++) {
