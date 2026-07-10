@@ -21,8 +21,10 @@ This is a multi-line comment
 #include <tuple>
 #include <variant>
 #include <cmath>
+// Include headers for functions defined in OtherFunctions.cpp
+#include "OtherFunctions.hpp"
 
-// Forward declaration for functions
+// Forward declarations for functions
 int power (int base, int exponent);
 
 // Main function, which is executed by the compiled code
@@ -205,7 +207,12 @@ int main(){
     //---------------------------------------------------------
 
     // Simple function to raise one positive integer to the power of another positive integer
+    // - Defined within this file
     std::cout << "When I raise 2 to the power 5, I get: " << power(2, 5) << "." << std::endl;
+
+    // Simple function to produce the factorial of a positive integer
+    // - Imported from other file
+    std::cout << "The factorial of 5 is: " << factorial(5) << "." << std::endl;
 
     //---------------------------------------------------------
     // Classes, Structs, & Enumeration
@@ -228,7 +235,7 @@ int main(){
 // - Note, in C++ you cannot define a function within another function
 int power (int base, int exponent) {
     int result = 1; // num will be the final result
-    for (int i = 1; i <= exponent; i++) {
+    for (int i {1}; i <= exponent; i++) {
         result *= base;
     }
     return result;

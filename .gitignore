@@ -11,7 +11,7 @@ ENV/
 .env.local
 
 # Ignore OS-specific junk files
-.DS_Store
+**/.DS_Store
 Thumbs.db
 
 # Ignore VSCode environment setup
